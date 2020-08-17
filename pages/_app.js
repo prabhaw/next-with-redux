@@ -1,7 +1,11 @@
-import '../styles/globals.css'
+import App from "next/app";
+import { wrapper } from "./../Redux/store";
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+    return <Component {...pageProps} />;
+  }
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp);
